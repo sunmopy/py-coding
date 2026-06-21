@@ -1,0 +1,33 @@
+# 日志配置文件
+# 如果此文件不存在，将使用 utils/logger.py 中的 DEFAULT_CONFIG
+
+# 日志级别：TRACE / DEBUG / INFO / WARNING / ERROR / CRITICAL
+# INFO 级别会打印 INFO 及以上，DEBUG 不会打印
+log_level: INFO
+
+# 是否输出到控制台（开发环境建议 true，生产环境可设为 false）
+console_output: true
+
+# 文件输出配置
+file_output:
+  # 是否启用文件输出
+  enabled: true
+  
+  # 日志文件路径
+  path: logs/app.log
+  
+  # 文件轮换条件
+  # 支持格式：
+  #   - 大小：如 "100 MB", "500 MB", "1 GB"
+  #   - 时间：如 "1 day", "1 week", "1 month"
+  #   - 时间点：如 "00:00"（每天凌晨）, "12:00"（每天中午）
+  rotation: 500 MB
+  
+  # 日志保留策略
+  # 支持格式：
+  #   - 时间：如 "7 days", "1 month"
+  #   - 数量：如 "10 files"（保留最近10个文件）
+  retention: 7 days
+  
+  # 压缩格式：zip / gz / bz2 / tar.gz / null（不压缩）
+  compression: zip
